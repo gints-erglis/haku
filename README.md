@@ -1,1 +1,1 @@
-# drupal11_theme
+# Haku - clean Drupal 11 theme starter

@@ -4,7 +4,7 @@
 ...
 ## Storybook
 
-To start using a Storybook tool in the theme, navigate to `storybook` folder and run:
+To start using a Storybook tool in the theme, navigate to the `storybook` (create it in the theme root if it does not exist) folder and run:
 
 ```
 npx storybook init

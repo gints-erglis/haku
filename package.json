@@ -1,18 +1,20 @@
 {
   "name": "haku",
-  "version": "0.0.0",
+  "version": "0.0.7",
   "scripts": {
     "dev": "webpack --watch",
     "build": "webpack --mode=production",
-    "sass-dev": "sass --watch components/style.scss:dist/style.css --source-map --style=expanded --update"
+    "postinstall": "npm run build"
   },
   "devDependencies": {
+    "autoprefixer": "^10.4.19",
     "css-loader": "^7.1.2",
-    "mini-css-extract-plugin": "^2.9.2",
-    "sass": "^1.83.4",
-    "sass-loader": "^16.0.4",
-    "style-loader": "^4.0.0",
-    "webpack": "^5.97.1",
+    "mini-css-extract-plugin": "^2.9.4",
+    "postcss-loader": "^8.1.1",
+    "sass": "^1.93.2",
+    "sass-loader": "^16.0.5",
+    "webpack": "^5.102.0",
     "webpack-cli": "^6.0.1"
-  }
+  },
+  "dependencies": {}
 }

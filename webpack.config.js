@@ -1,38 +1,42 @@
 const path = require("path");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const Autoprefixer = require("autoprefixer");
 
-// Default to development mode
 const mode = process.argv.includes('--mode=production')
   ? 'production'
   : 'development';
 
 module.exports = {
-  // Specify the mode to use: 'development' or 'production'
   mode,
 
-  // Entry point of the application
   entry: {
-    style: './components/style.scss', // Name the entry point 'style'
+    style: './components/style.scss',
   },
 
-  // Output configuration
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: '[name].js',
+    filename: 'js/[name].js',
   },
 
-  // Module rules to handle different file types
   module: {
     rules: [
       {
-        test: /\.s[ac]ss$/i, // Match .scss and .sass files
+        test: /\.s[ac]ss$/i,
         use: [
-          mode !== 'production'
-            ? 'style-loader'
-            : MiniCssExtractPlugin.loader,
-          'css-loader', // Resolves CSS imports and url()s
+          MiniCssExtractPlugin.loader,
+          'css-loader',
           {
-            loader: 'sass-loader', // Compiles Sass to CSS
+            loader: 'postcss-loader',
+            options: {
+              postcssOptions: {
+                plugins: [
+                  Autoprefixer(),
+                ],
+              },
+            },
+          },
+          {
+            loader: 'sass-loader',
             options: {
               implementation: require('sass'),
               sassOptions: {
@@ -41,19 +45,19 @@ module.exports = {
             },
           },
         ],
-        include: path.resolve(__dirname, 'components'),
       },
     ],
   },
+
   plugins: [
     new MiniCssExtractPlugin({
-      filename: '[name].css', // Output CSS files with the same name as the entry point
+      filename: '[name].css',
     }),
   ],
+
   optimization: {
     minimize: mode === 'production',
   },
-  // Output source maps for easier debugging in development mode
+
   devtool: mode === 'production' ? 'source-map' : 'eval-source-map',
 };
-

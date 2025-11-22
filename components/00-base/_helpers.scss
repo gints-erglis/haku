@@ -1,0 +1,42 @@
+@use 'mixins' as *;
+
+.grid-auto-fit {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(30ch, 100%), 1fr));
+  gap: clamp(1rem, 2vw, var(--default-gap));
+  justify-content: start;
+
+  @include up('mobile') {
+    grid-template-columns: repeat(auto-fit, minmax(min(32ch, 100%), auto));
+  }
+}
+
+.full-width-bg {
+  position: relative;
+  overflow: visible;
+  z-index: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100vw;
+    height: 100%;
+    z-index: -1;
+  }
+}
+
+.visually-hidden {
+  position: absolute;
+  inset: 0;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}

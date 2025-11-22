@@ -2,6 +2,9 @@
  * @file
  * Styles for system messages.
  */
+div[data-drupal-messages] {
+  margin-bottom: 1rem;
+}
 
 .messages {
   margin-left: .5rem;

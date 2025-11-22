@@ -1,0 +1,21 @@
+@use 'variables' as *;
+@use "sass:map";
+
+$breakpoints: (
+  'mobile': $bp-mobile,
+  'desktop': $bp-desktop,
+);
+
+@mixin up($bp-name) {
+  $bp-value: map.get($breakpoints, $bp-name);
+  @media (min-width: $bp-value) {
+    @content;
+  }
+}
+
+@mixin down($bp-name) {
+  $bp-value: map.get($breakpoints, $bp-name);
+  @media (max-width: $bp-value) {
+    @content;
+  }
+}

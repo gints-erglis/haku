@@ -1,9 +1,10 @@
 name: haku
 type: theme
-base theme: none
 description: Clean and minimalistic Drupal 11 theme
 package: Custom
 core_version_requirement: ^10 || ^11
+base theme: false
+
 libraries:
   - haku/global
 regions:
@@ -18,4 +19,6 @@ regions:
   content: 'Content'
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
+  footer_top: 'Footer top'
   footer: 'Footer'
+  footer_bottom: 'Footer bottom'

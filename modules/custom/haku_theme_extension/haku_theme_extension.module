@@ -1,0 +1,20 @@
+<?php
+
+/**
+ * @file
+ * Hooks and helpers for the module.
+ */
+
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_theme().
+ */
+function haku_theme_extension_theme($existing, $type, $theme, $path) {
+  return [
+    'components_demo' => [
+      'variables' => [],
+      'template' => 'demo/components-demo',
+    ],
+  ];
+}

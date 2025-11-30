@@ -3,6 +3,7 @@ global:
   css:
     theme:
       dist/style.css: {}
+      fonts/fonts.css: {}
   js:
     js/external-links.js: { minified: false }
   dependencies:

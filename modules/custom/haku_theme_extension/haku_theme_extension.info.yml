@@ -1,0 +1,6 @@
+name: 'Haku Theme Extension'
+type: module
+description: 'Extends Haku theme functionality.'
+core_version_requirement: '^10 || ^11'
+package: Custom
+version: 1.0.0

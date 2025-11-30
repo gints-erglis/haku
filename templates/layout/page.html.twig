@@ -44,7 +44,7 @@
 #}
 <div class="layout-container">
 
-  <header role="banner">
+  <header>
     <div class="page-wrapper">
       {{ page.header_top }}
       {{ page.header }}
@@ -60,7 +60,7 @@
 
   {{ page.help }}
 
-  <main role="main">
+  <main>
     <div class="page-wrapper">
       <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
 
@@ -83,7 +83,7 @@
   </main>
 
   {% if page.footer %}
-    <footer role="contentinfo">
+    <footer>
       <div class="page-wrapper">
         {{ page.footer }}
       </div>

@@ -3,3 +3,8 @@ global:
   css:
     theme:
       dist/style.css: {}
+  js:
+    js/external-links.js: { minified: false }
+  dependencies:
+    - core/drupal
+    - core/once

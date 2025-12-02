@@ -1,0 +1,43 @@
+{#
+Button component using Drupal Attributes object
+-------------------------------------------------
+Variables:
+  - theme: [string] Theme: light, dark.
+  - text: string, button label
+  - variant: string, optional, btn--modifier
+  - size: string, optional, btn--small / btn--large
+  - icon: string, optional, icon id
+  - icon_only: bool, optional, true = icon-only button
+  - attributes: Drupal\Core\Template\Attribute object or array
+#}
+{%
+    set classes = [
+    'button',
+    variant is defined ? 'button--' ~ variant : '',
+    size is defined ? 'button--' ~ size : '',
+    icon_only ? 'button--icon-only' : '',
+]
+%}
+{% set attributes = attributes|default(create_attribute()) %}
+{% do attributes.addClass(classes) %}
+
+{# Decide element: <a> if url provided, else <button> #}
+{% if url is defined %}
+  <a href="{{ url }}"{{ attributes }}>
+    {% if icon is defined %}
+      {{ icon(icon, {'class': 'button__icon', 'aria-hidden': icon_only ? 'true' : null})|raw }}
+    {% endif %}
+    {% if not icon_only %}
+      <span class="button__label">{{ text }}</span>
+    {% endif %}
+  </a>
+{% else %}
+  <button type="{{ type|default('button') }}"{{ attributes }}>
+    {% if icon is defined %}
+      {{ icon(icon, {'class': 'button__icon', 'aria-hidden': icon_only ? 'true' : null})|raw }}
+    {% endif %}
+    {% if not icon_only %}
+      <span class="button__label">{{ text }}</span>
+    {% endif %}
+  </button>
+{% endif %}

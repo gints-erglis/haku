@@ -1,7 +1,0 @@
-haku_theme_extension.components:
-  path: '/theme-demo'
-  defaults:
-    _controller: '\Drupal\haku_theme_extension\Controller\DemoController::components'
-    _title: 'Theme Components Demo'
-  requirements:
-    _permission: 'administer site configuration'

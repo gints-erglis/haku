@@ -1,5 +1,0 @@
-services:
-  haku_theme_extension.twig.icon_extension:
-    class: Drupal\haku_theme_extension\Twig\IconExtension
-    tags:
-      - { name: twig.extension }
